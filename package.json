@@ -1,0 +1,39 @@
+{
+  "name": "advlib-eep-vld",
+  "homepage": "https://github.com/reelyactive/advlib-eep-vld/",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
+  "description": "Wireless advertising packet decoding library for EnOcean Equipment Profile VLD telegrams.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "advlib",
+    "EnOcean",
+    "EEP",
+    "VLD",
+    "payload processor",
+    "library"
+  ],
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "./lib/advlibeepvld.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/advlib-eep-vld.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^6.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/reelyactive/advlib-eep-vld/issues"
+  },
+  "contributors": [
+    { "name": "Jeffrey Dungen" }
+  ],
+  "license": "MIT"
+}
