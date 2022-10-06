@@ -38,6 +38,16 @@ Which should yield the following console output:
     }
 
 
+Supported EnOcean Equipment Profiles
+------------------------------------
+
+The following EEPs are currently supported by __advlib-eep-vld__.
+
+| EEP      | Profile Name                           | /lib file               |
+|:---------|:---------------------------------------|:------------------------|
+| D2-14-41 | Temperature, Humidity XYZ Acceleration, Illumination Sensor | multifunctionsensors.js |
+
+
 Contributing
 ------------
 
