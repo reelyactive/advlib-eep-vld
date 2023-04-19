@@ -46,6 +46,8 @@ The following EEPs are currently supported by __advlib-eep-vld__.
 | EEP      | Profile Name                           | /lib file               |
 |:---------|:---------------------------------------|:------------------------|
 | D2-14-41 | Temperature, Humidity XYZ Acceleration, Illumination Sensor | multifunctionsensors.js |
+| D2-14-50 | Basic Water Properties Sensor (pH)     | multifunctionsensors.js |
+| D2-14-51 | Basic Water Properties Sensor (Dissolved Oxygen) | multifunctionsensors.js |
 
 
 Contributing

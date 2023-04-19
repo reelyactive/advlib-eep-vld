@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2022
+ * Copyright reelyActive 2022-2023
  * We believe in an open Internet of Things
  */
 
@@ -14,7 +14,10 @@ const INPUT_DATA_INVALID_HEX_STRING = 'xyz';
 const INPUT_DATA_TOO_SHORT_BUFFER = Buffer.from('', 'hex');
 const INPUT_DATA_MULTISENSOR_EEP_TYPE = 'D2-14-41';
 const INPUT_DATA_MULTISENSOR = 'd29165c02963e4f5d8000414006980';
-
+const INPUT_DATA_PH_EEP_TYPE = 'D2-14-50';
+const INPUT_DATA_PH = 'd27522800414006980';
+const INPUT_DATA_DISSOLVED_OXYGEN_EEP_TYPE = 'D2-14-51';
+const INPUT_DATA_DISSOLVED_OXYGEN = 'd2751c200414006980';
 
 // Expected outputs for the scenario
 const EXPECTED_DATA_INVALID_INPUT = null;
@@ -25,7 +28,15 @@ const EXPECTED_DATA_MULTISENSOR = {
     isMotionDetected: [ false ],
     relativeHumidity: 75.5,
     temperature: 18.1
-}
+};
+const EXPECTED_DATA_PH = {
+    temperature: 23.4,
+    pH: 6.9
+};
+const EXPECTED_DATA_DISSOLVED_OXYGEN = {
+    temperature: 23.4,
+    dissolvedOxygen: 45
+};
 
 
 // Describe the scenario
@@ -46,6 +57,20 @@ describe('advlib-eep-vld', function() {
   it('should handle valid multisensor data as input', function() {
     assert.deepEqual(advlib.processVLDTelegram(INPUT_DATA_MULTISENSOR_EEP_TYPE,
                      INPUT_DATA_MULTISENSOR), EXPECTED_DATA_MULTISENSOR);
+  });
+
+  // Test the process function with valid pH data
+  it('should handle valid pH data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(INPUT_DATA_PH_EEP_TYPE,
+                     INPUT_DATA_PH), EXPECTED_DATA_PH);
+  });
+
+  // Test the process function with valid Dissolved Oxygen data
+  it('should handle valid dissolved oxygen data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(
+                                          INPUT_DATA_DISSOLVED_OXYGEN_EEP_TYPE,
+                                          INPUT_DATA_DISSOLVED_OXYGEN),
+                                          EXPECTED_DATA_DISSOLVED_OXYGEN);
   });
 
 });
