@@ -18,6 +18,8 @@ const INPUT_DATA_PH_EEP_TYPE = 'D2-14-50';
 const INPUT_DATA_PH = 'd27522800414006980';
 const INPUT_DATA_DISSOLVED_OXYGEN_EEP_TYPE = 'D2-14-51';
 const INPUT_DATA_DISSOLVED_OXYGEN = 'd2751c200414006980';
+const INPUT_DATA_PEOPLE_ACTIVITY_COUNTER_EEP_TYPE = 'D2-15-00';
+const INPUT_DATA_PEOPLE_ACTIVITY_COUNTER = 'd20a30390414006980';
 
 // Expected outputs for the scenario
 const EXPECTED_DATA_INVALID_INPUT = null;
@@ -36,6 +38,10 @@ const EXPECTED_DATA_PH = {
 const EXPECTED_DATA_DISSOLVED_OXYGEN = {
     temperature: 23.4,
     dissolvedOxygen: 45
+};
+const EXPECTED_DATA_PEOPLE_ACTIVITY_COUNTER = {
+    isMotionDetected: true,
+    passageCounts: [ 12345 ]
 };
 
 
@@ -71,6 +77,14 @@ describe('advlib-eep-vld', function() {
                                           INPUT_DATA_DISSOLVED_OXYGEN_EEP_TYPE,
                                           INPUT_DATA_DISSOLVED_OXYGEN),
                                           EXPECTED_DATA_DISSOLVED_OXYGEN);
+  });
+
+  // Test the process function with valid People Activity Counter data
+  it('should handle valid people activity counter data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(
+                                   INPUT_DATA_PEOPLE_ACTIVITY_COUNTER_EEP_TYPE,
+                                   INPUT_DATA_PEOPLE_ACTIVITY_COUNTER),
+                                   EXPECTED_DATA_PEOPLE_ACTIVITY_COUNTER);
   });
 
 });
