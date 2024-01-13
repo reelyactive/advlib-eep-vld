@@ -3,6 +3,8 @@ advlib-eep-vld
 
 Wireless advertising packet decoding library for EnOcean Equipment Profiles of variable-length data (VLD).  __advlib-eep-vld__ is typically used as a library for [advlib-esp](https://github.com/reelyactive/advlib-esp) which itself is commonly a processor module of the protocol-agnostic [advlib](https://github.com/reelyactive/advlib).
 
+![Overview of advlib-eep-vld](https://reelyactive.github.io/advlib-eep-vld/images/overview.png)
+
 __advlib-eep-vld__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib-eep-vld) with no dependencies.  See also its sister libraries [advlib-eep-4bs](https://github.com/reelyactive/advlib-eep-4bs) and [advlib-eep-rps](https://github.com/reelyactive/advlib-eep-rps).
 
 
@@ -49,6 +51,8 @@ The following EEPs are currently supported by __advlib-eep-vld__.
 | D2-14-50 | Basic Water Properties Sensor (pH)     | multifunctionsensors.js |
 | D2-14-51 | Basic Water Properties Sensor (Dissolved Oxygen) | multifunctionsensors.js |
 | D2-15-00 | Single Sensor                          | singlesensor.js         |
+
+See [www.reelyactive.com/pareto/anywhere/devices/enocean-alliance/](https://www.reelyactive.com/pareto/anywhere/devices/enocean-alliance/) for a list of all EEPs supported by our [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 
 
 Contributing
