@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2022-2023
+ * Copyright reelyActive 2022-2024
  * We believe in an open Internet of Things
  */
 
@@ -40,7 +40,7 @@ const EXPECTED_DATA_DISSOLVED_OXYGEN = {
     dissolvedOxygen: 45
 };
 const EXPECTED_DATA_PEOPLE_ACTIVITY_COUNTER = {
-    isMotionDetected: true,
+    isMotionDetected: [ true ],
     passageCounts: [ 12345 ]
 };
 
