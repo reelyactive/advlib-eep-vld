@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2022-2024
+ * Copyright reelyActive 2022-2025
  * We believe in an open Internet of Things
  */
 
@@ -20,6 +20,9 @@ const INPUT_DATA_DISSOLVED_OXYGEN_EEP_TYPE = 'D2-14-51';
 const INPUT_DATA_DISSOLVED_OXYGEN = 'd2751c200414006980';
 const INPUT_DATA_PEOPLE_ACTIVITY_COUNTER_EEP_TYPE = 'D2-15-00';
 const INPUT_DATA_PEOPLE_ACTIVITY_COUNTER = 'd20a30390414006980';
+const INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC_EEP_TYPE = 'D2-14-59';
+const INPUT_DATA_SD_ENO_CO2_SENSOR = 'd28a3ebfffffffffffff0a680414006980';
+const INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC = 'd28a3e95555554d230390a680414006980';
 
 // Expected outputs for the scenario
 const EXPECTED_DATA_INVALID_INPUT = null;
@@ -43,6 +46,21 @@ const EXPECTED_DATA_PEOPLE_ACTIVITY_COUNTER = {
     isMotionDetected: [ true ],
     passageCounts: [ 12345 ]
 };
+const EXPECTED_DATA_SD_ENO_CO2_SENSOR = {
+    relativeHumidity: 69,
+    temperature: 25,
+    carbonDioxideConcentration: 666
+}
+const EXPECTED_DATA_T_RH_PM_CO2_HCHO_TVOC = {
+    relativeHumidity: 69,
+    temperature: 25,
+    "pm10": 170,
+    "pm2.5": 341,
+    "pm1.0": 170,
+    formaldehydeConcentration: 0.666,
+    volatileOrganicCompoundsConcentration: 12.345,
+    carbonDioxideConcentration: 666
+}
 
 
 // Describe the scenario
@@ -85,6 +103,22 @@ describe('advlib-eep-vld', function() {
                                    INPUT_DATA_PEOPLE_ACTIVITY_COUNTER_EEP_TYPE,
                                    INPUT_DATA_PEOPLE_ACTIVITY_COUNTER),
                                    EXPECTED_DATA_PEOPLE_ACTIVITY_COUNTER);
+  });
+
+  // Test the process function with valid SD-ENO-C02 sensor data
+  it('should handle valid SD-ENO-CO2 sensor data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(
+                                     INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC_EEP_TYPE,
+                                     INPUT_DATA_SD_ENO_CO2_SENSOR),
+                                     EXPECTED_DATA_SD_ENO_CO2_SENSOR);
+  });
+
+  // Test the process function with valid T_RH_PM_CO2_HCHO_TVOC data
+  it('should handle valid T_RH_PM_CO2_HCHO_TVOC data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(
+                                     INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC_EEP_TYPE,
+                                     INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC),
+                                     EXPECTED_DATA_T_RH_PM_CO2_HCHO_TVOC);
   });
 
 });
