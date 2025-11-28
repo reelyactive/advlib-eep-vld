@@ -52,6 +52,9 @@ The following EEPs are currently supported by __advlib-eep-vld__.
 | D2-14-51 | Basic Water Properties Sensor (Dissolved Oxygen) | multifunctionsensors.js |
 | D2-14-59 | Temperature, Humidity, PM, CO2, HCHO and TVOC | multifunctionsensors.js |
 | D2-15-00 | Single Sensor                          | singlesensor.js         |
+| D2-32-00 | AC Current Clamp (single)              | accurrentclamps.js      |
+| D2-32-01 | AC Current Clamp (dual)                | accurrentclamps.js      |
+| D2-32-02 | AC Current Clamp (triple)              | accurrentclamps.js      |
 
 See [www.reelyactive.com/pareto/anywhere/devices/enocean-alliance/](https://www.reelyactive.com/pareto/anywhere/devices/enocean-alliance/) for a list of all EEPs supported by our [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 

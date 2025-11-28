@@ -23,6 +23,12 @@ const INPUT_DATA_PEOPLE_ACTIVITY_COUNTER = 'd20a30390414006980';
 const INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC_EEP_TYPE = 'D2-14-59';
 const INPUT_DATA_SD_ENO_CO2_SENSOR = 'd28a3ebfffffffffffff0a680414006980';
 const INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC = 'd28a3e95555554d230390a680414006980';
+const INPUT_DATA_SINGLE_AC_CURRENT_CLAMP_EEP_TYPE = 'D2-32-00';
+const INPUT_DATA_SINGLE_AC_CURRENT_CLAMP = 'd2004d200414006980';
+const INPUT_DATA_DUAL_AC_CURRENT_CLAMP_EEP_TYPE = 'D2-32-01';
+const INPUT_DATA_DUAL_AC_CURRENT_CLAMP = 'd2404d21410414006980';
+const INPUT_DATA_TRIPLE_AC_CURRENT_CLAMP_EEP_TYPE = 'D2-32-02';
+const INPUT_DATA_TRIPLE_AC_CURRENT_CLAMP = 'd2004d214100100414006980';
 
 // Expected outputs for the scenario
 const EXPECTED_DATA_INVALID_INPUT = null;
@@ -50,7 +56,7 @@ const EXPECTED_DATA_SD_ENO_CO2_SENSOR = {
     relativeHumidity: 69,
     temperature: 25,
     carbonDioxideConcentration: 666
-}
+};
 const EXPECTED_DATA_T_RH_PM_CO2_HCHO_TVOC = {
     relativeHumidity: 69,
     temperature: 25,
@@ -60,7 +66,10 @@ const EXPECTED_DATA_T_RH_PM_CO2_HCHO_TVOC = {
     formaldehydeConcentration: 0.666,
     volatileOrganicCompoundsConcentration: 12.345,
     carbonDioxideConcentration: 666
-}
+};
+const EXPECTED_DATA_SINGLE_AC_CURRENT_CLAMP = { amperages: [ 1234 ] };
+const EXPECTED_DATA_DUAL_AC_CURRENT_CLAMP = { amperages: [ 123.4, 32.1 ] };
+const EXPECTED_DATA_TRIPLE_AC_CURRENT_CLAMP = { amperages: [ 1234, 321, 1 ] };
 
 
 // Describe the scenario
@@ -119,6 +128,30 @@ describe('advlib-eep-vld', function() {
                                      INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC_EEP_TYPE,
                                      INPUT_DATA_T_RH_PM_CO2_HCHO_TVOC),
                                      EXPECTED_DATA_T_RH_PM_CO2_HCHO_TVOC);
+  });
+
+  // Test the process function with valid Single AC Current Clamp data
+  it('should handle valid single AC current clamp data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(
+                                   INPUT_DATA_SINGLE_AC_CURRENT_CLAMP_EEP_TYPE,
+                                   INPUT_DATA_SINGLE_AC_CURRENT_CLAMP),
+                                   EXPECTED_DATA_SINGLE_AC_CURRENT_CLAMP);
+  });
+
+  // Test the process function with valid Dual AC Current Clamp data
+  it('should handle valid dual AC current clamp data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(
+                                   INPUT_DATA_DUAL_AC_CURRENT_CLAMP_EEP_TYPE,
+                                   INPUT_DATA_DUAL_AC_CURRENT_CLAMP),
+                                   EXPECTED_DATA_DUAL_AC_CURRENT_CLAMP);
+  });
+
+  // Test the process function with valid Triple AC Current Clamp data
+  it('should handle valid triple AC current clamp data as input', function() {
+    assert.deepEqual(advlib.processVLDTelegram(
+                                   INPUT_DATA_TRIPLE_AC_CURRENT_CLAMP_EEP_TYPE,
+                                   INPUT_DATA_TRIPLE_AC_CURRENT_CLAMP),
+                                   EXPECTED_DATA_TRIPLE_AC_CURRENT_CLAMP);
   });
 
 });
